@@ -5,8 +5,9 @@
   "main": "/build/server.js",
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "build-watch": "clear && tsc --watch",
+    "build": "npm run cp-graphql && tsc",
+    "cp-graphql": "rm build/.graphql && ln src/.graphql build/",
+    "build-watch": "clear && npm run cp-graphql && tsc --watch",
     "start": "clear && nodemon build/server.js"
   },
   "repository": {
